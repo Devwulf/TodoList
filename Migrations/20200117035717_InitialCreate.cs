@@ -15,8 +15,9 @@ namespace TodoList.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
-                    DateCreated = table.Column<DateTime>(nullable: true),
-                    IsDone = table.Column<bool>(nullable: false)
+                    DateCreated = table.Column<DateTime>(
+                        nullable: false, 
+                        defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified))
                 },
                 constraints: table =>
                 {

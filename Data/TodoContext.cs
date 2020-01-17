@@ -15,5 +15,11 @@ namespace TodoList.Data
         }
 
         public DbSet<TodoItem> Todo { get; set; }
+
+        public Task<int> SaveChangesAsync()
+        {
+            this.SyncEntitiesStatePreCommit();
+            return base.SaveChangesAsync();
+        }
     }
 }

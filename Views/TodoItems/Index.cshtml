@@ -22,6 +22,9 @@
                 @Html.DisplayNameFor(model => model.DateCreated)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.DateModified)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.IsDone)
             </th>
             <th></th>
@@ -58,6 +61,17 @@
                 @:<strike>
                 }
                 @Html.DisplayFor(modelItem => item.DateCreated)
+                @if (item.IsDone)
+                {
+                @:</strike>
+                }
+            </td>
+            <td>
+                @if (item.IsDone)
+                {
+                @:<strike>
+                }
+                @Html.DisplayFor(modelItem => item.DateModified)
                 @if (item.IsDone)
                 {
                 @:</strike>

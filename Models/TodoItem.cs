@@ -6,22 +6,18 @@ using System.Threading.Tasks;
 
 namespace TodoList.Models
 {
-    public class TodoItem
+    public class TodoItem : ITrackable
     {
         public int Id { get; set; }
+
+        [Required]
         public string Title { get; set; }
         public string Description { get; set; }
-
-        [Display(Name = "Date Created")]
-        [DataType(DataType.DateTime)]
-        public DateTime DateCreated { get; private set; }
 
         [Display(Name = "Is Done?")]
         public bool IsDone { get; set; }
 
-        public TodoItem()
-        {
-            DateCreated = DateTime.Now;
-        }
+        public DateTime DateCreated { get; set; }
+        public DateTime DateModified { get; set; }
     }
 }
